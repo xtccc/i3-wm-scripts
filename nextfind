@@ -24,7 +24,9 @@ def select_window(windows, dmenu_args):
         display = "({}{}) {}".format(wm_class, mult, title)
         options.append((display, L))
     try:
-        ret = subprocess.check_output(["dmenu"] + dmenu_args, input=joinlines(x for x, _ in options).encode("UTF-8"))
+        #use rofi -dmenu -i replace the dmenu
+        dmenu_args+= ["-dmenu", "-i"]
+        ret = subprocess.check_output(["rofi"] + dmenu_args, input=joinlines(x for x, _ in options).encode("UTF-8"))
     except subprocess.CalledProcessError as e:
         sys.exit(e.returncode)
     ret = ret.decode("UTF-8").strip()
