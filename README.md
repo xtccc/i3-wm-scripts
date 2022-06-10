@@ -20,12 +20,15 @@ otherwise it stays at the current.
 
 Example Binding:
 ```
-bindsym $mod+e exec python ~/bin/nextfind # use rofi to select an open window
+bindsym $mod+e exec python ~/.config/i3/nextfind # use rofi to select an open window
 ```
 demo:
 ![demo](./demo.gif)
 
 ### Install
 To install just put the scripts in your path, or bind the scripts in you config
-file. I installed mine in ~/bin/, then made the bindings in my config file.
+file.
 
+```
+cp common.py nextfind ~/.config/i3/
+```
